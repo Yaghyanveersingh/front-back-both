@@ -1,6 +1,6 @@
 const express = require('express')
 const path = require('path')
-
+const cors = require('cors')
 const {open} = require('sqlite')
 const sqlite3 = require('sqlite3')
 const app = express()
@@ -40,3 +40,4 @@ app.get('/articles/', async (request, response) => {
   const booksArray = await db.all(getBooksQuery)
   response.send(booksArray)
 })
+app.use(cors())
